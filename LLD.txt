@@ -1,0 +1,45 @@
+Issue Tracker
+
+
+
+
+Problem statement
+Create a nodejs + ejs  application to track issues/bugs for a project. Read the Features below on what to implement. You can take inspiration from Github issue tracker or some other application.
+
+
+Instructions
+* You are ALLOWED to style the app any way you like.
+* Once you have finished with the test, make a video recording of your computer screen (via phone or a software like OBS/screencastify etc) and give a walkthrough of your product (showcase project functionalities). The video can be UPTO 5 mins long.
+* Upload frontend and backend code on github, and share the URLs.
+
+
+Features
+1. Build a neat UI
+2. Home Page
+   1. Show a list of projects.
+   2. Give a button to create a new Project (On creating a new project it should appear in the list)
+3. Create Project Page
+   1. Accept the following fields to create a project
+      1. Name
+      2. Description
+      3. Author
+4. Project Detail Page
+   1. When the user clicks on a project (in home page) redirect the user to this page which will show bugs related to this project
+   2. User should be able to perform following actions on this page
+      1. Filter by multiple labels i.e. I should be able to filter by 2 or more labels at the same time
+      2. Filter by author
+      3. Search by title and description
+   3. A button to create an issue
+5. Create issue page
+   1. User should be able to create an issue for a project
+   2. Accept the following fields
+      1. Title
+      2. Description
+      3. Labels (multiple labels can be added to a project, IF a project has a label already show it (in dropdown) as the user types the label in)
+      4. Author
+
+
+
+
+FREE TIPS:
+* For good UI, search for similar apps online or search Dribble, Behance websites for UI mockups.
