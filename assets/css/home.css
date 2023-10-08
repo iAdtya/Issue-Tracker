@@ -59,8 +59,6 @@ body {
 	align-items: center;
 	justify-content: center;
 	font-family: Poppins, sans-serif;
-	background: url(https://images.unsplash.com/photo-1574169208507-84376144848b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=879&q=80)
-		no-repeat center center;
 	background-size: cover;
 }
 button.primary {

@@ -73,9 +73,13 @@
     </button>
     
     <dialog id="dialog">
-      <h2>Hello.</h2>
-      <p>A CSS-only modal based on the::backdrop</a> pseudo-class. Hope you find it helpful.</p>
-      <p>You can also change the styles of the <code>::backdrop</code> from the CSS.</p>
+      <h2>Add Project!</h2>
+      <form action="/projects/create" method="post">
+        <input type="text" name="name" placeholder="Project Name" />
+        <input type="text" name="description" placeholder="Project Description" />
+        <input type="text" name="author" placeholder="Author name"/>
+        <button type="submit" >Add Project!</button>
+      </form>
       <button onclick="window.dialog.close();" aria-label="close" class="x">❌</button>
     </dialog>
     
