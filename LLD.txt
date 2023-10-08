@@ -43,3 +43,5 @@ Features
 
 FREE TIPS:
 * For good UI, search for similar apps online or search Dribble, Behance websites for UI mockups.
+
+I am a Bootcamp student and i have tried my assh of getting my first bug often getting overwhelmed but one day my curious mind said what if the boot camp has a bug bounty program and i searched they didnt so i went to sleep and one night as part of my routine i was studying at night i get a text from a fellow student saying hii but there was a image next to his name and i screamed { IDOR } i tested the image url and whahala it was a IDOR and thats my first bug story wanna know what happened next nothing the bug still exists 😅 twitter (Aditya38763529)

@@ -4,7 +4,7 @@ dotenv.config();
 
 const uri = process.env.uri
 // console.log(uri);
- 
+
 export const connectDB = async () => {
   try{
 
