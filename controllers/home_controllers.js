@@ -2,7 +2,7 @@ import Project from "../models/projects.js";
 
 const home = async (req, res) => {
   try {
-    const projects = await Project.find();
+    const projects = await Project.find().sort(" -createdAt");
     return res.render("home", {
       projects,
       title: "Issue-Tracker",
