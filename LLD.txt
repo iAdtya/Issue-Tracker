@@ -45,3 +45,54 @@ FREE TIPS:
 * For good UI, search for similar apps online or search Dribble, Behance websites for UI mockups.
 
 I am a Bootcamp student and i have tried my assh of getting my first bug often getting overwhelmed but one day my curious mind said what if the boot camp has a bug bounty program and i searched they didnt so i went to sleep and one night as part of my routine i was studying at night i get a text from a fellow student saying hii but there was a image next to his name and i screamed { IDOR } i tested the image url and whahala it was a IDOR and thats my first bug story wanna know what happened next nothing the bug still exists 😅 twitter (Aditya38763529)
+
+
+<div class="bg-gray-900">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
+      <h2 class="text-2xl overflow-hidden font-bold text-white">Projects !!!</h2>
+      <div class="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
+        <% projects.forEach(function(project) { %>
+        <div class="group relative mb-[50px] ">
+          <div class="relative  h-80 w-full overflow-auto rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+            <!-- Display project details here -->
+            <h3 class="absolute inset-0 flex items-center justify-center text-lg font-semibold">
+              <%= project.name %>
+            </h3>
+          </div>
+          <h3 class="mt-6 text-sm text-green-300">
+            <a href="#">
+              <span class="absolute inset-0"></span>
+              <%= project.author %>
+            </a>
+          </h3>
+          <p class="text-base font-semibold text-white"><%= project.description %></p>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+  <% projects.forEach(function(project) { %>
+  <a href="#">
+      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+        <%= project.name %>
+      </h5>
+  </a>
+  <p class="mb-3 font-normal text-gray-700 dark:text-gray-400" >
+    <%= project.description %>
+  </p>
+  <h2 class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+    <%= project.author %>  
+  </h2>
+  <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+      Read more
+      <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+      </svg>
+  </a>
+  <% }) %>
+</div>
