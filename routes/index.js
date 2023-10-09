@@ -9,6 +9,8 @@ const router = express.Router();
 router.get('/',home);
 router.use('/projects', projects)
 
+
+
 console.log("router loaded");
 
 export default router;
