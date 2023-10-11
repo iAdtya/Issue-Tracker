@@ -54,10 +54,10 @@ dialog {
 
 /*General Styles*/
 body {
-	height: 100vh;
+	/* height: 100vh; */
 	display: flex;
-	align-items: center;
-	justify-content: center;
+	/* align-items: center;
+	justify-content: center; */
 	font-family: Poppins, sans-serif;
 	background-size: cover;
 }
