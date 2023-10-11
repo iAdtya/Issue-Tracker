@@ -70,21 +70,21 @@
         data-bs-toggle="modal"
         data-bs-target="#dialog"
       >
-        Add Project
+        Add Issues
       </button>
-
 
       <dialog id="dialog">
         <h2>Add Project!</h2>
-        <form action="/projects/create" method="post">
-          <input type="text" name="name" placeholder="Project Name" />
+        <form action="/projects/projectDetails/Issues" method="post">
+          <input type="text" name="title" placeholder="Issue Title" />
           <input
             type="text"
             name="description"
-            placeholder="Project Description"
+            placeholder="Issue Description"
           />
           <input type="text" name="author" placeholder="Author name" />
-          <button type="submit">Add Project!</button>
+          <input type="text" name="labels" placeholder="labels" />
+          <button type="submit">Add Issues!</button>
         </form>
         <button onclick="window.dialog.close();" aria-label="close" class="x">
           ❌
@@ -118,9 +118,5 @@
         </svg>
       </button>
     </div>
-
-
-
   </div>
 </nav>
-

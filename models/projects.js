@@ -9,6 +9,10 @@ const projectSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  issues:[{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Issue',
+  }],
   author: {
     type: String,
     required: true,
