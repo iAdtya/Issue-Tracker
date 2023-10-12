@@ -4,8 +4,8 @@ const home = async (req, res) => {
   try {
     const projects = await Project.find().sort(" -createdAt");
     return res.render("home", {
-      projects,
       title: "Issue-Tracker",
+      projects,
     });
   } catch (err) {
     console.log("Error", err);

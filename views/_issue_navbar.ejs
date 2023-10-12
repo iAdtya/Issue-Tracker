@@ -70,56 +70,83 @@
         data-bs-toggle="modal"
         data-bs-target="#dialog"
       >
-        Add Project
+        Create Issues!
       </button>
 
-
       <dialog id="dialog">
-        <h2>Add Project!</h2>
-        <form action="/projects/create" method="post">
-          <input type="text" name="name" placeholder="Project Name" />
+        <h2> Create Issues!</h2>
+        <form action="/projects/<%=project._id%>" method="post">
+          <input type="text" name="title" placeholder="Issue Title" />
           <input
             type="text"
             name="description"
-            placeholder="Project Description"
+            placeholder="Issue Description"
           />
           <input type="text" name="author" placeholder="Author name" />
-          <button class="text-white bg-green-400 hover:bg-green-400 focus:ring-4 focus:outline-none focus:ring-green-400 font-medium rounded-lg md:mr-0 text-sm py-2 dark:bg-green-400 dark:hover:bg-green-400 dark:focus:ring-green-400" type="submit">Add Projects!</button>
+          <!-- <input type="text" name="labels" placeholder="labels" /> -->
+          <button class="text-white bg-green-400 hover:bg-green-400 focus:ring-4 focus:outline-none focus:ring-green-400 font-medium rounded-lg md:mr-0 text-sm px-2 py-2 dark:bg-green-400 dark:hover:bg-green-400 dark:focus:ring-green-400"  type="submit">Add Issues!</button>
+
+
+          <!-- labels -->
+          <div class="row mb-3 m-auto">
+            <label for="labels" class="col-sm-4 col-form-label"> Labels</label>
+  
+            <div class="col-sm-8">
+              <input
+                class="form-check-input"
+                name="labels"
+                type="checkbox"
+                value="Bug"
+                id="bug"
+              />
+              <label class="form-check-label" for="bug"> Bug </label><br /><input
+                name="labels"
+                class="form-check-input"
+                type="checkbox"
+                value="UI Improvement"
+                id="ui-improvement"
+              />
+              <label class="form-check-label" for="ui-improvement">
+                UI Improvement </label
+              ><br /><input
+                name="labels"
+                class="form-check-input"
+                type="checkbox"
+                value="Documentation"
+                id="documentation"
+              />
+              <label class="form-check-label" for="documentation">
+                Documentation </label
+              ><br /><input
+                name="labels"
+                class="form-check-input"
+                type="checkbox"
+                value="Enhancement"
+                id="enhancement"
+              />
+              <label class="form-check-label" for="enhancement">
+                Enhancement </label
+              ><br /><input
+                name="labels"
+                class="form-check-input"
+                type="checkbox"
+                value="Duplicate"
+                id="duplicate"
+              />
+              <label class="form-check-label" for="duplicate"> Duplicate </label>
+            </div>
+          </div>
+
         </form>
         <button onclick="window.dialog.close();" aria-label="close" class="x">
           ❌
         </button>
       </dialog>
 
-      <!-- another modal -->
+      <!-- Labels -->
 
-      <button
-        data-collapse-toggle="navbar-sticky"
-        type="button"
-        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-        aria-controls="navbar-sticky"
-        aria-expanded="false"
-      >
-        <span class="sr-only">Open main menu</span>
-        <svg
-          class="w-5 h-5"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 17 14"
-        >
-          <path
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M1 1h15M1 7h15M1 13h15"
-          />
-        </svg>
-      </button>
+      
+
     </div>
-
-
-
   </div>
 </nav>

@@ -1,11 +1,14 @@
 import express from "express";
 
+
 const app =express.Router();
 
-import { createProject,projectDetails } from "../controllers/Project_controllers.js";
+import { createProject,projectDetails,createIssue } from "../controllers/Project_controllers.js";
 
 app.post("/create", createProject);
-app.get("/projectDetails/:id", projectDetails);
+app.get("/:id", projectDetails);
+app.post("/:id", createIssue);
+
 
 console.log("project router loaded")
 
