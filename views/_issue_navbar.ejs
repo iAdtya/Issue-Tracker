@@ -57,40 +57,32 @@
       </svg>
       <span
         class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
-        >Issue-Tracker</span
       >
+        Issue-Tracker
+      </span>
     </a>
     <!-- button -->
     <div class="flex md:order-2">
       <button
-        onclick="window.dialog.showModal();"
+        onclick="window.Fillter.showModal();"
         id="openModal"
         type="button"
         class="text-white bg-green-400 hover:bg-green-400 focus:ring-4 focus:outline-none focus:ring-green-400 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-green-400 dark:hover:bg-green-400 dark:focus:ring-green-400"
         data-bs-toggle="modal"
-        data-bs-target="#dialog"
+        data-bs-target="#Fillter"
       >
-        Create Issues!
+        Fillter Issues!
       </button>
 
-      <dialog id="dialog">
-        <h2> Create Issues!</h2>
+      <dialog id="Fillter">
+        <h2>Fillter Issues!</h2>
         <form action="/projects/<%=project._id%>" method="post">
-          <input type="text" name="title" placeholder="Issue Title" />
-          <input
-            type="text"
-            name="description"
-            placeholder="Issue Description"
-          />
-          <input type="text" name="author" placeholder="Author name" />
           <!-- <input type="text" name="labels" placeholder="labels" /> -->
-          <button class="text-white bg-green-400 hover:bg-green-400 focus:ring-4 focus:outline-none focus:ring-green-400 font-medium rounded-lg md:mr-0 text-sm px-2 py-2 dark:bg-green-400 dark:hover:bg-green-400 dark:focus:ring-green-400"  type="submit">Add Issues!</button>
-
 
           <!-- labels -->
           <div class="row mb-3 m-auto">
             <label for="labels" class="col-sm-4 col-form-label"> Labels</label>
-  
+
             <div class="col-sm-8">
               <input
                 class="form-check-input"
@@ -99,7 +91,8 @@
                 value="Bug"
                 id="bug"
               />
-              <label class="form-check-label" for="bug"> Bug </label><br /><input
+              <label class="form-check-label" for="bug"> Bug </label
+              ><br /><input
                 name="labels"
                 class="form-check-input"
                 type="checkbox"
@@ -133,20 +126,135 @@
                 value="Duplicate"
                 id="duplicate"
               />
-              <label class="form-check-label" for="duplicate"> Duplicate </label>
+              <label class="form-check-label" for="duplicate">
+                Duplicate
+              </label>
             </div>
           </div>
+          <button
+            class="text-white bg-green-400 hover:bg-green-400 focus:ring-4 focus:outline-none focus:ring-green-400 font-medium rounded-lg md:mr-0 text-sm px-2 py-2 dark:bg-green-400 dark:hover:bg-green-400 dark:focus:ring-green-400"
+            type="submit"
+          >
+            Fillter Issues!
+          </button>
+        </form>
+        <button onclick="window.Fillter.close();" aria-label="close" class="x">
+          ❌
+        </button>
+      </dialog>
 
+      <button
+        onclick="window.Search.showModal();"
+        id="openModal"
+        type="button"
+        class="text-white ml-2 bg-yellow-600 hover:bg-yellow-600 focus:ring-4 focus:outline-none focus:ring-green-400 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-yellow-600 dark:hover:bg-yellow-600 dark:focus:ring-green-400"
+        data-bs-toggle="modal"
+        data-bs-target="#Search"
+      >
+        Search Issues!
+      </button>
+
+      <dialog id="Search">
+        <h2>Search Issues!</h2>
+        <form action="/projects/<%=project._id%>" method="post">
+          <button
+            class="text-white bg-green-400 hover:bg-green-400 focus:ring-4 focus:outline-none focus:ring-green-400 font-medium rounded-lg md:mr-0 text-sm px-2 py-2 dark:bg-green-400 dark:hover:bg-green-400 dark:focus:ring-green-400"
+            type="submit"
+          >
+            Search Issues!
+          </button>
+        </form>
+        <button onclick="window.Search.close();" aria-label="close" class="x">
+          ❌
+        </button>
+      </dialog>
+
+      <button
+        onclick="window.dialog.showModal();"
+        id="openModal"
+        type="button"
+        class="text-white ml-2 bg-red-400 hover:bg-red-400 focus:ring-4 focus:outline-none focus:ring-green-400 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-red-400 dark:hover:bg-red-400 dark:focus:ring-green-400"
+        data-bs-toggle="modal"
+        data-bs-target="#dialog"
+      >
+        Create Issues!
+      </button>
+
+      <dialog id="dialog">
+        <h2>Create Issues!</h2>
+        <form action="/projects/<%=project._id%>" method="post">
+          <input type="text" name="title" placeholder="Issue Title" />
+          <input
+            type="text"
+            name="description"
+            placeholder="Issue Description"
+          />
+          <input type="text" name="author" placeholder="Author name" />
+          <!-- <input type="text" name="labels" placeholder="labels" /> -->
+          <button
+            class="text-white bg-green-400 hover:bg-green-400 focus:ring-4 focus:outline-none focus:ring-green-400 font-medium rounded-lg md:mr-0 text-sm px-2 py-2 dark:bg-green-400 dark:hover:bg-green-400 dark:focus:ring-green-400"
+            type="submit"
+          >
+            Add Issues!
+          </button>
+
+          <!-- labels -->
+          <div class="row mb-3 m-auto">
+            <label for="labels" class="col-sm-4 col-form-label"> Labels</label>
+
+            <div class="col-sm-8">
+              <input
+                class="form-check-input"
+                name="labels"
+                type="checkbox"
+                value="Bug"
+                id="bug"
+              />
+              <label class="form-check-label" for="bug"> Duplicate </label
+              ><br /><input
+                name="labels"
+                class="form-check-input"
+                type="checkbox"
+                value="UI Improvement"
+                id="ui-improvement"
+              />
+              <label class="form-check-label" for="ui-improvement">
+                UI Improvement </label
+              ><br /><input
+                name="labels"
+                class="form-check-input"
+                type="checkbox"
+                value="Documentation"
+                id="documentation"
+              />
+              <label class="form-check-label" for="documentation">
+                Documentation </label
+              ><br /><input
+                name="labels"
+                class="form-check-input"
+                type="checkbox"
+                value="Enhancement"
+                id="enhancement"
+              />
+              <label class="form-check-label" for="enhancement">
+                Enhancement </label
+              ><br /><input
+                name="labels"
+                class="form-check-input"
+                type="checkbox"
+                value="Duplicate"
+                id="duplicate"
+              />
+              <label class="form-check-label" for="duplicate">
+                Bug
+              </label>
+            </div>
+          </div>
         </form>
         <button onclick="window.dialog.close();" aria-label="close" class="x">
           ❌
         </button>
       </dialog>
-
-      <!-- Labels -->
-
-      
-
     </div>
   </div>
 </nav>
