@@ -63,34 +63,27 @@
     <!-- button -->
     <div class="flex md:order-2">
       <button
-        onclick="window.dialog.showModal();"
-        id="openModal"
-        type="button"
-        class="text-white bg-green-400 hover:bg-green-400 focus:ring-4 focus:outline-none focus:ring-green-400 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-green-400 dark:hover:bg-green-400 dark:focus:ring-green-400"
-        data-bs-toggle="modal"
-        data-bs-target="#dialog"
-      >
-        Add Project
-      </button>
-
-
-      <dialog id="dialog">
-        <h2>Add Project!</h2>
-        <form action="/projects/create" method="post">
-          <input type="text" name="name" placeholder="Project Name" />
-          <input
-            type="text"
-            name="description"
-            placeholder="Project Description"
-          />
-          <input type="text" name="author" placeholder="Author name" />
-          <button type="submit">Add Project!</button>
-        </form>
-        <button onclick="window.dialog.close();" aria-label="close" class="x">
-          ❌
-        </button>
-      </dialog>
-
+      onclick="window.dialog.showModal();"
+      id="openModal"
+      type="button"
+      class="text-white bg-green-400 hover:bg-green-400 focus:ring-4 focus:outline-none focus:ring-green-400 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-green-400 dark:hover:bg-green-400 dark:focus:ring-green-400"
+      data-bs-toggle="modal"
+      data-bs-target="#dialog"
+    >
+      Add Project
+    </button>
+    
+    <dialog id="dialog">
+      <h2>Add Project!</h2>
+      <form action="/projects/create" method="post">
+        <input type="text" name="name" placeholder="Project Name" />
+        <input type="text" name="description" placeholder="Project Description" />
+        <input type="text" name="author" placeholder="Author name"/>
+        <button type="submit" >Add Project!</button>
+      </form>
+      <button onclick="window.dialog.close();" aria-label="close" class="x">❌</button>
+    </dialog>
+    
       <!-- another modal -->
 
       <button

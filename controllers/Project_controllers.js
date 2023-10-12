@@ -1,15 +1,34 @@
 import Project from "../models/projects.js";
+<<<<<<< HEAD
 import issue from "../models/issue.js";
+=======
+import Issue from "../models/issue.js";
+>>>>>>> new-branch
 
 export const createProject = async (req, res) => {
   console.log(req.body);
   try {
+<<<<<<< HEAD
     const { name, description, author } = req.body;
     // console.log(
     //   `name: ${name}, description: ${description}, author: ${author}`
     // );
     const project = new Project({ name, description, author });
     await project.save();
+=======
+    // const { name, description, author } = req.body;
+    // // console.log(`name: ${name}, description: ${description}, author: ${author}`);
+    // const project = new Project({ name, description, author });
+
+    // await project.save();
+    // // res.json({ project });
+
+    Project.create({
+      name: req.body.name,
+      description: req.body.description,
+      author: req.body.author,
+    });
+>>>>>>> new-branch
     res.redirect("back");
   } catch (error) {
     console.log(`Error in creating project: ${error}`);
@@ -33,6 +52,7 @@ export const Isuues = async (req, res) => {
 };
 
 export const projectDetails = async (req, res) => {
+<<<<<<< HEAD
   // const projects = await Project.findById().sort(" -createdAt");
   const details = await Project.findById(req.params.id);
   const issues = await issue.find({ project: details._id }).populate('project');
@@ -44,9 +64,66 @@ export const projectDetails = async (req, res) => {
       //?or use this
       //? project:details, project.author
       title: "Project Details",
+=======
+  try {
+    const project = await Project.findById(req.params.id).populate({
+      path: "issues",
+>>>>>>> new-branch
     });
+
+    console.log(project);
+    
+    if (project) {
+      return res.render("projectDetails", {
+        //?or use this
+        //? project:details, project.author
+        title: "Project Details",
+        project,
+      });
+    }
+    return res.redirect("back");
   } catch (error) {
     console.log(`Error in getting project details: ${error}`);
     return res.redirect("back");
   }
 };
+
+export const createIssue = async (req, res) => {
+  try {
+
+    let project = await Project.findById(req.params.id);
+    if(project){
+      let issue = await Issue.create({
+        title: req.body.title,
+        description: req.body.description,
+        labels: req.body.labels,
+        author: req.body.author,
+      });
+      // todo added to the issues array of the project object using the push() method
+      project.issues.push(issue);
+      if (!(typeof req.body.labels === 'string')) {
+        for (let label of req.body.labels) {
+          let isPresent = project.labels.find((obj) => obj == label);
+          if (!isPresent) {
+            project.labels.push(label);
+          }
+        }
+      } else {
+        let isPresent = project.labels.find((obj) => obj == req.body.labels);
+        if (!isPresent) {
+          project.labels.push(req.body.labels);
+        }
+      }
+      await project.save();
+      return res.redirect("back");
+
+    }else{
+      return res.redirect('back');
+    }
+    
+  } catch (error) {
+    console.log(`Error in getting project issues: ${error}`);
+    return res.redirect("back");
+  }
+};
+
