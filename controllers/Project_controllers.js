@@ -1,21 +1,9 @@
 import Project from "../models/projects.js";
-<<<<<<< HEAD
-import issue from "../models/issue.js";
-=======
 import Issue from "../models/issue.js";
->>>>>>> new-branch
 
 export const createProject = async (req, res) => {
   console.log(req.body);
   try {
-<<<<<<< HEAD
-    const { name, description, author } = req.body;
-    // console.log(
-    //   `name: ${name}, description: ${description}, author: ${author}`
-    // );
-    const project = new Project({ name, description, author });
-    await project.save();
-=======
     // const { name, description, author } = req.body;
     // // console.log(`name: ${name}, description: ${description}, author: ${author}`);
     // const project = new Project({ name, description, author });
@@ -28,7 +16,6 @@ export const createProject = async (req, res) => {
       description: req.body.description,
       author: req.body.author,
     });
->>>>>>> new-branch
     res.redirect("back");
   } catch (error) {
     console.log(`Error in creating project: ${error}`);
@@ -42,7 +29,7 @@ export const Isuues = async (req, res) => {
     console.log(
       `name: ${title}, description: ${description}, author: ${author},labels:${labels}`
     );
-    const issues = new issue({ title, description, author, labels });
+    const issues = new Issue({ title, description, author, labels });
     await issues.save();
     res.redirect("back");
   } catch (error) {
@@ -52,23 +39,9 @@ export const Isuues = async (req, res) => {
 };
 
 export const projectDetails = async (req, res) => {
-<<<<<<< HEAD
-  // const projects = await Project.findById().sort(" -createdAt");
-  const details = await Project.findById(req.params.id);
-  const issues = await issue.find({ project: details._id }).populate('project');
-  console.log( issues);
-  try {
-    return res.render("projectDetails", {
-      details,
-      issues,
-      //?or use this
-      //? project:details, project.author
-      title: "Project Details",
-=======
   try {
     const project = await Project.findById(req.params.id).populate({
       path: "issues",
->>>>>>> new-branch
     });
 
     console.log(project);
