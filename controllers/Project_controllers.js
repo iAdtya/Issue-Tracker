@@ -79,6 +79,7 @@ export const projectDetails = async (req, res) => {
         //? project:details, project.author
         title: "Project Details",
         project,
+        req:req
       });
     }
     return res.redirect("back");
