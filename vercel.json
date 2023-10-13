@@ -4,8 +4,9 @@
     {
       "src": "index.js",
       "use": "@now/node"
-    },{
-      "src": "views/**/*.ejs",
+    },
+    {
+      "src": "views/**/*",
       "use": "@now/static-build",
       "config": {
         "distDir": "public"
