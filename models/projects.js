@@ -28,26 +28,10 @@ const projectSchema = new mongoose.Schema(
       },
     ],
   },
-<<<<<<< HEAD
-  description: {
-    type: String,
-    required: true,
-  },
-  issues:[{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Issue',
-  }],
-  author: {
-    type: String,
-    required: true,
-  },
-},{timestamps: true});
-=======
   {
     timestamps: true,
   }
 );
->>>>>>> new-branch
 
 const Project = mongoose.model("Project", projectSchema);
 
