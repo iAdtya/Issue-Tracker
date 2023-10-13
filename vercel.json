@@ -4,6 +4,12 @@
     {
       "src": "index.js",
       "use": "@now/node"
+    },{
+      "src": "views/**/*.ejs",
+      "use": "@now/static-build",
+      "config": {
+        "distDir": "public"
+      }
     }
   ],
   "routes": [
