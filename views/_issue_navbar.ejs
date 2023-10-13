@@ -75,60 +75,52 @@
       </button>
 
       <dialog id="Fillter">
-        <h2>Fillter Issues!</h2>
-        <form action="/projects/<%=project._id%>" method="post">
-          <!-- <input type="text" name="labels" placeholder="labels" /> -->
-
+        <h2 class="text-2xl">Fillter Issues!</h2>
+        <form action="/" method="get" id="filter-issue-form">
           <!-- labels -->
           <div class="row mb-3 m-auto">
-            <label for="labels" class="col-sm-4 col-form-label"> Labels</label>
-
             <div class="col-sm-8">
+              <% for( let label of project.labels) { %>
               <input
                 class="form-check-input"
                 name="labels"
                 type="checkbox"
-                value="Bug"
-                id="bug"
+                value="<%= label %>"
+                id="<%=label%>"
               />
-              <label class="form-check-label" for="bug"> Bug </label
-              ><br /><input
-                name="labels"
-                class="form-check-input"
-                type="checkbox"
-                value="UI Improvement"
-                id="ui-improvement"
-              />
-              <label class="form-check-label" for="ui-improvement">
-                UI Improvement </label
-              ><br /><input
-                name="labels"
-                class="form-check-input"
-                type="checkbox"
-                value="Documentation"
-                id="documentation"
-              />
-              <label class="form-check-label" for="documentation">
-                Documentation </label
-              ><br /><input
-                name="labels"
-                class="form-check-input"
-                type="checkbox"
-                value="Enhancement"
-                id="enhancement"
-              />
-              <label class="form-check-label" for="enhancement">
-                Enhancement </label
-              ><br /><input
-                name="labels"
-                class="form-check-input"
-                type="checkbox"
-                value="Duplicate"
-                id="duplicate"
-              />
-              <label class="form-check-label" for="duplicate">
-                Duplicate
-              </label>
+              <label class="form-check-label" for="<%=label%>">
+                <%=label%> </label
+              ><br />
+              <% } %>
+            </div>
+
+            <div class="row mb-3 m-auto">
+              <label for="authorlabel" class="text-2xl col-form-label"
+                >Author</label
+              >
+              <div class="col-sm-8">
+                <input
+                  class="form-check-input"
+                  name="author"
+                  type="radio"
+                  checked="checked"
+                  value=""
+                  id="null"
+                />
+                <label class="form-check-label" for="null">None</label><br />
+                <% for( let issue of project.issues ) { %>
+                <input
+                  class="form-check-input"
+                  name="author"
+                  type="radio"
+                  value="<%= issue.author %>"
+                  id="<%= issue.author %>"
+                />
+                <label class="form-check-label" for="<%= issue.author %>"
+                  ><%= issue.author %></label
+                ><br />
+                <% } %>
+              </div>
             </div>
           </div>
           <button
@@ -143,6 +135,8 @@
         </button>
       </dialog>
 
+      <!-- search Issue -->
+
       <button
         onclick="window.Search.showModal();"
         id="openModal"
@@ -156,18 +150,57 @@
 
       <dialog id="Search">
         <h2>Search Issues!</h2>
-        <form action="/projects/<%=project._id%>" method="post">
-          <button
-            class="text-white bg-green-400 hover:bg-green-400 focus:ring-4 focus:outline-none focus:ring-green-400 font-medium rounded-lg md:mr-0 text-sm px-2 py-2 dark:bg-green-400 dark:hover:bg-green-400 dark:focus:ring-green-400"
-            type="submit"
-          >
-            Search Issues!
-          </button>
+        <form
+          class="border border-light border-3"
+          action="/"
+          method="get"
+          id="search-issue-form"
+        >
+          <div class="row mb-3 m-auto">
+            <label for="titlelabel" class="col-sm-4 col-form-label"
+              >Title</label
+            >
+            <div class="col-sm-8">
+              <input
+                type="text"
+                name="tie"
+                placeholder="Search by title.."
+                class="form-control"
+                id="titlelabel"
+              />
+            </div>
+          </div>
+          <div class="row mb-3 m-auto">
+            <label for="desclabel" class="col-sm-4 col-form-label"
+              >Description</label
+            >
+            <div class="col-sm-8">
+              <input
+                type="text"
+                name="des"
+                placeholder="Search by description..."
+                class="form-control"
+                id="authorlabel"
+              />
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              class="text-white bg-green-400 hover:bg-green-400 focus:ring-4 focus:outline-none focus:ring-green-400 font-medium rounded-lg md:mr-0 text-sm px-2 py-2 dark:bg-green-400 dark:hover:bg-green-400 dark:focus:ring-green-400"
+              type="submit"
+            >
+              Search Issues!
+            </button>
+          </div>
         </form>
+
         <button onclick="window.Search.close();" aria-label="close" class="x">
           ❌
         </button>
       </dialog>
+
+      <!-- create issue -->
 
       <button
         onclick="window.dialog.showModal();"
@@ -181,7 +214,7 @@
       </button>
 
       <dialog id="dialog">
-        <h2>Create Issues!</h2>
+        <h2 class="text-2xl">Create Issues!</h2>
         <form action="/projects/<%=project._id%>" method="post">
           <input type="text" name="title" placeholder="Issue Title" />
           <input
@@ -191,16 +224,12 @@
           />
           <input type="text" name="author" placeholder="Author name" />
           <!-- <input type="text" name="labels" placeholder="labels" /> -->
-          <button
-            class="text-white bg-green-400 hover:bg-green-400 focus:ring-4 focus:outline-none focus:ring-green-400 font-medium rounded-lg md:mr-0 text-sm px-2 py-2 dark:bg-green-400 dark:hover:bg-green-400 dark:focus:ring-green-400"
-            type="submit"
-          >
-            Add Issues!
-          </button>
 
           <!-- labels -->
           <div class="row mb-3 m-auto">
-            <label for="labels" class="col-sm-4 col-form-label"> Labels</label>
+            <label for="labels" class="col-sm-4 text-2xl col-form-label">
+              Labels</label
+            >
 
             <div class="col-sm-8">
               <input
@@ -245,11 +274,15 @@
                 value="Duplicate"
                 id="duplicate"
               />
-              <label class="form-check-label" for="duplicate">
-                Bug
-              </label>
+              <label class="form-check-label" for="duplicate"> Bug </label>
             </div>
           </div>
+          <button
+            class="text-white bg-green-400 hover:bg-green-400 focus:ring-4 focus:outline-none focus:ring-green-400 font-medium rounded-lg md:mr-0 text-sm px-2 py-3 dark:bg-green-400 dark:hover:bg-green-400 dark:focus:ring-green-400"
+            type="submit"
+          >
+            Add Issues!
+          </button>
         </form>
         <button onclick="window.dialog.close();" aria-label="close" class="x">
           ❌
@@ -258,3 +291,4 @@
     </div>
   </div>
 </nav>
+<div id="issue-data" data="<%=JSON.stringify(project.issues)%>"></div>

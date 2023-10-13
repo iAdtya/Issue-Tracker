@@ -38,17 +38,19 @@
               </p>
             </div>
           </div>
-          <% for(let issue of project.issues){ %>
+          <% for(let issue of project.issues) { if((!req.query.author ||
+          issue.author === req.query.author) && (!req.query.labels ||
+          issue.labels.includes(req.query.labels))) { %>
           <h3
             class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white md:text-3xl text-xl"
           >
             Title: <%= issue.title %>
           </h3>
           <p class="text-xl mt-6 text-sm mb-[10px] text-green-300">
-            Author: <%=issue.author %>
+            Author: <%= issue.author %>
           </p>
           <h3 class="text-yellow-400 md:text-3xl text-xl mt-6">
-            <%=issue.labels %>
+            <%= issue.labels %>
           </h3>
 
           <div class="my-4">
@@ -56,16 +58,12 @@
               <%= issue.description %>
             </p>
           </div>
-          <hr>
-          <% } %>
+          <hr />
+          <% } } %>
         </div>
       </div>
     </div>
-    <hr>
-    <% } %>
-
-
-
-    
+    <hr />
+    <% } %> <%-include('_footer.ejs') %>
   </body>
 </html>
