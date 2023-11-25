@@ -31,11 +31,12 @@ app.use("/", routes);
 const startServer = async () => {
   try {
     await connectDB();
-    app.listen(port, async () => {
+    console.log('MongoDB connected successfully');
+    app.listen(port, () => {
       console.log(`server is running on port :: ${port}`);
     });
   } catch (error) {
-    console.log(error);
+    console.log('Error connecting to MongoDB:', error);
   }
 };
 
