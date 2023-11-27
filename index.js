@@ -6,8 +6,8 @@ import { connectDB } from "./config/mongoose.js";
 
 const app = express();
 
-const port = process.env.port || 8001;
-console.log(port);
+const PORT = process.env.PORT || 8001;
+console.log(PORT);
 
 app.use(express.urlencoded({ extended: true }));
 // app.use(express.json())
@@ -32,7 +32,7 @@ const startServer = async () => {
   try {
     await connectDB();
     console.log('MongoDB connected successfully');
-    app.listen(port, () => {
+    app.listen(PORT, () => {
       console.log(`server is running on port :: ${port}`);
     });
   } catch (error) {
